@@ -252,7 +252,7 @@ main {
 
 footer {
     margin-top: 50px;
-    height: 200px;
+    height: 180px;
     background-color: #353535;
 }
 
@@ -263,6 +263,14 @@ footer a {
 
 footer img {
     filter: brightness(0) invert(1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    height: 18px;
+}
+
+footer li {
+    margin-bottom: 8px;
 }
 
 footer i {
@@ -284,6 +292,10 @@ footer i {
 
 .header__template img {
     margin-top: 12px;
+}
+
+.main__template {
+    height: 1150px;
 }
 
 .banner {
@@ -361,25 +373,29 @@ footer i {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 50px;
+    width: 0px;
     background-color: white;
     border-radius: 0px 10px 10px 0px;
+    transition: width 0.5s ease-in-out;
 }
 
 .menu .menu__cardText>div+div i {
+    display: none;
     color: white;
     background-color: white;
     padding: 3px;
     border-radius: 50%;
     font-size: 13px;
+    transition: width 0.5s ease-in-out;
 }
 
-.menu .menu__cardText:hover>div+div, .menu .menu__cardText:focus>div+div  {
+.menu .menu__cardText:hover>div+div {
     background-color: $tertiary-color;
-    animation: menu__cardTextAnimation 0.75s;
+    width: 50px;
 }
 
 .menu .menu__cardText:hover>div+div i {
+    display: block;
     color: $tertiary-color;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
     animation: menu__cardTextAnimationIcone 0.75s ;
@@ -448,30 +464,6 @@ footer i {
         opacity:1;
     }
 }
-
-
-@keyframes menu__cardTextAnimationStart {
-
-    from {
-        width: 50px;
-    }
-
-    to {
-        width: 0;
-    }
-}
-
-@keyframes menu__cardTextAnimation {
-
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 50px;
-    }
-}
-
 
 @keyframes menu__cardTextAnimationIcone {
     0% {
