@@ -107,6 +107,11 @@ main {
   font-size: 14px;
 }
 
+.top a:hover {
+  background: linear-gradient(to top, rgb(152, 97, 221), #FF79DA);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+}
+
 /* Operation */
 .operation {
   width: 100%;
@@ -180,6 +185,10 @@ main {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
+.restaurants__card:last-child {
+  margin-bottom: 50px;
+}
+
 .restaurants__cardImage {
   position: relative;
   height: 200px;
@@ -224,7 +233,7 @@ main {
 }
 
 .restaurants__cardText button {
-  background-color: none;
+  background-color: transparent;
   border: none;
   font-size: 20px;
   cursor: pointer;
@@ -236,7 +245,8 @@ main {
 
 /* Footer */
 footer {
-  margin-top: 50px;
+  position: relative;
+  z-index: 2;
   height: 180px;
   background-color: #353535;
 }
@@ -278,7 +288,12 @@ footer i {
 }
 
 .main__template {
-  height: 1150px;
+  height: 1180px;
+  background-color: #f7f7f7;
+}
+
+.main__template2 {
+  height: 1280px;
 }
 
 .banner {
@@ -344,7 +359,26 @@ footer i {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+}
+
+.menu .menu__cardText:first-child {
+  animation: fadein 1s;
+}
+
+.menu .menu__cardText:nth-child(2) {
+  animation: fadein 2s;
+}
+
+.menu .menu__cardText {
+  animation: fadein 3s;
+}
+
+.menu .menu__cardText:last-child {
   animation: fadein 4s;
+}
+
+.menu .menu__cardText:nth-child(4) {
+  animation: fadein 3s;
 }
 
 .menu .menu__cardText > div:not(:last-child) {
@@ -435,19 +469,160 @@ footer i {
   border: none;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  margin-bottom: 50px;
+}
+
+.menu .button button:hover {
+  background: linear-gradient(to top, rgb(152, 97, 221), #FF79DA);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 12px;
+}
+
+.main__template + footer {
+  /*margin-top: 120px;*/
 }
 
 @keyframes fadein {
   from {
-    opacity: 0;
+    transform: scale(0);
   }
   to {
-    opacity: 1;
+    transform: scale(1);
   }
 }
 @keyframes menu__cardTextAnimationIcone {
   100% {
     transform: rotate(360deg);
+  }
+}
+.body {
+  animation: heartBody 3s ease-in-out;
+}
+
+.heart {
+  position: absolute;
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.396);
+  animation: heartLoad 3s ease-in-out;
+}
+
+.lds-heart {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+
+.lds-heart div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #FF79DA;
+  animation: lds-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.lds-heart div:after,
+.lds-heart div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #FF79DA;
+}
+
+.lds-heart div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+
+.lds-heart div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+
+@keyframes heartBody {
+  0% {
+    overflow-y: hidden;
+  }
+  100% {
+    overflow-y: hidden;
+  }
+}
+@keyframes heartLoad {
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes lds-heart {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+/* PC */
+@media (min-width: 1024px) {
+  .menu article:first-child {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 50px;
+    justify-content: center;
+  }
+  .menu article:first-child i {
+    display: none;
+  }
+  h2 {
+    margin-bottom: 20px;
+    margin-left: 0;
+    text-align: center;
+  }
+  .operation__card {
+    width: 50%;
+  }
+  .menu article:not(:first-child) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu .menu__cardText {
+    width: 50%;
+  }
+  .menu__cardTitle div {
+    width: 100% !important;
+  }
+  .restaurants__card {
+    margin-bottom: 20px;
+    width: 50%;
+  }
+  .main__template {
+    height: 1280px;
+  }
+  .main__template2 {
+    height: 1300px;
   }
 }
 
